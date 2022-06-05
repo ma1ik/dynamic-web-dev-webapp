@@ -1,0 +1,27 @@
+body {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.row {
+  font-size: larger;
+  color: white;
+  display: flex;
+}
+.column {
+  align-items: center;
+  display: flex;
+  min-height: 40px;
+  padding: 8px 0;
+  font-size: 16px;
+  line-height: 1.3;
+}
+.column img {
+  max-width: 20%;
+  padding-right: 5px;
+}
+.column a {
+  text-align: right;
+}
+.right {
+  text-align: right;
+}

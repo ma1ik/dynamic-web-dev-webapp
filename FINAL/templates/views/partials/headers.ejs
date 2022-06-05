@@ -1,0 +1,14 @@
+<nav role="navigation">
+  <a href="/">Movies</a>
+  <a href="/showPage">Shows</a>
+  <%if (user) { %>
+    <a href="/profileMyList">My List</a>
+  <% } %>
+  <div class="separator"></div>
+  <%if (!user) { %>
+    <a href="/login">Login / Register</a>
+  <% } else{ %>
+    <p class="greetingUser">Hello, <%= user %></p>
+    <p><a href="/logout">Logout</a></p>
+  <% } %>
+</nav>

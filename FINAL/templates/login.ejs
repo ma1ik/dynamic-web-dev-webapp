@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./views/partials/heads.ejs'); %>
+
+    <link rel="stylesheet" href="../styles/login.css" />
+    <title>Sign Up/Log In Form</title>
+  </head>
+  <body>
+    <header><%- include('./views/partials/headers.ejs'); %></header>
+
+    <div class="spacer"></div>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="/doRegister" method="POST">
+          <h1>Create Account</h1>
+
+          <span>Register for an account</span>
+          <input aria-label="Username" type="text" placeholder="Username" required="required" name="username" />
+          <input aria-label="Email" type="email" placeholder="Email" required="required" name="email" />
+          <input aria-label="Password" type="password" placeholder="Password" required="required" name="password" />
+          <input aria-label="Password" type="password" placeholder="Confirm Password" required="required" name="confpassword" />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="/doLogin" method="POST">
+          <div id="sign-in-inner">
+            <h1>Sign in</h1>
+            <span>Log in to your account</span>
+            <input aria-label="Email" type="text" required="required" placeholder="Username / Email" name="username" />
+            <input aria-label="Password" type="password" required="required" placeholder="Password" name="password" />
+            <!--<a role="button" id="go_to_reset" href="javascript:void(0)">Forgot your password?</a>-->
+            <button type="submit">Sign In</button>
+          </div>
+          <!--<div id="forgot-password-inner" class="hidden">
+            <h1>Forgot your password?</h1>
+            <span>Enter your username or email below and we'll email you a reset link.</span>
+            <input aria-label="Email" type="text" required="required" placeholder="Username / Email" name="email" />
+            <a role="button" id="go_to_login" href="javascript:void(0)">I Remember it, take me back!</a>
+            <button>Reset Password</button>
+          </div>-->
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>Already Got An Account?</h1>
+            <p>Sign in using your Email or Username!</p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Hello, Stranger!</h1>
+            <p>Create an account with us to keep track of all your favorite Shows & Movies!</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <script src="../scripts/login.js"></script>
+  </body>
+</html>

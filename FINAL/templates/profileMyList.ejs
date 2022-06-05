@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./views/partials/heads.ejs'); %>
+
+    <link href="../styles/profileMylist.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header><%- include('./views/partials/headers.ejs'); %></header>
+    <div class="profile">
+      <div class="wrapper">
+        <div class="left">
+          <img src="https://robohash.org/<%= user %>>.png" alt="user" width="100" />
+          <h4><%= user %></h4>
+        </div>
+        <div class="right">
+          <div class="projects">
+            <h3>Watched Facts</h3>
+            <div class="projects_data">
+              <div class="data">
+                <h4>Most Recent Watched</h4>
+                <% if (shows.length > 0 || movies.length >0) { let watched = [...movies, ...shows]; %>
+                  <p><%= watched[watched.length -1].title %></p>
+                <% } else { %>
+                  <p>No Shows/Movies added</p>
+                <% }%>
+              </div>
+              <div class="data">
+                <h4>Favorite Genre</h4>
+                <p>Coming soon... to a cinema near you this summer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tabContainer">
+      <div class="buttonContainer">
+        <button onclick="showPanel(0,'#086788')">My Movies</button>
+        <button onclick="showPanel(1,'#06526d')">My Shows</button>
+      </div>
+      <div class="tabPanel myMoviesList">
+        <% if (movies.length<1) { %>
+        <h1 style="padding-bottom: 20px">
+          You currently have no saved movies! Go to main page and hit the eye button to add to your seen movies list!
+        </h1>
+        <% } %> <% for (var i = 0; i < movies.length; i++) { %>
+        <div class="row" data-type="movie" data-id="<%= movies[i].id %>">
+          <div class="column">
+            <img src="<%= movies[i].image %>" alt="Movie Poster" />
+            <h2><%= movies[i].title %></h2>
+          </div>
+          <div class="column is-trash">
+            <a class="delete" role="button"><i class="fas fa-trash"></i></a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <div class="tabPanel myShowsList">
+        <% if (shows.length<1) { %>
+        <h1 style="padding-bottom: 20px">
+          You currently have no saved shows! Go to main page and hit the eye button to add to your seen shows list!
+        </h1>
+        <% } %> <% for (var v = 0; v < shows.length; v++) { %>
+        <div class="row" data-type="tv" data-id="<%= shows[v].id %>">
+          <div class="column">
+            <img src="<%= shows[v].image %>" alt="Show Poster" />
+            <h2><%= shows[v].title %></h2>
+          </div>
+          <div class="column is-trash">
+            <a class="delete" role="button"><i class="fas fa-trash"></i></a>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/profileMyList.js"></script>
+    <script>
+      $(".delete").on("click", async function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        let target = $(event.target);
+
+        let type = target.parents("[data-type]").data("type");
+        let id = target.parents("[data-id]").data("id");
+
+        try {
+          await fetch("/felt_cute_might_delete_later", {
+            method: "post",
+            body: JSON.stringify({ type, id }),
+            headers: { "content-type": "application/json" },
+          });
+          target.parents("[data-id]").remove();
+        } catch (ignored) {}
+      });
+    </script>
+    <!-- <script src="scripts/nonoop.js"></script> -->
+  </body>
+</html>

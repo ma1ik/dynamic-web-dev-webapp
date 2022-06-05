@@ -1,0 +1,19 @@
+<nav role="navigation">
+    <a href="/">Movies</a>
+    <a href="/showPage">Shows</a>
+    <%if (user) { %>
+        <a href="/profileMyList">My List</a>
+    <% } %>
+    <div class="separator"></div>
+    <div class="searchDiv">
+        <input aria-label="Search" type="text" id="movieSearchTerm" class="searchInput" />
+        <a type="submit" id="movieSearchBtn" class="searchBtn"><i class="far fa-search"></i></a>
+    </div>
+    <div class="separator"></div>
+    <%if (!user) { %>
+        <a href="/login">Login / Register</a>
+    <% } else{ %>
+        <p class="greetingUser">Hello, <%= user %></p>
+        <p><a href="/logout">Logout</a></p>
+    <% } %>
+</nav>

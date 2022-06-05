@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="styles/login.css"/>
+        <link rel="stylesheet" href="styles/navbar.css"/>
+        <title>SignUp/In Form</title>
+    </head>
+    <body>
+        <header>
+            <nav role="navigation">
+                <a href="index.html">Movies</a>
+                <a href="showPage.html">Shows</a>
+                <a href="profileMyList.html">My List</a>
+                <div class="separator"></div>
+                <a href="login.html">Login / Register</a>
+            </nav>
+        </header>
+        <div class="spacer"></div>
+        <div class="container" id="container">
+            <div class="form-container sign-up-container">
+                <form action="">
+                    <h1>Create Account</h1>
+                    
+                    <span>Register for an account</span>
+                    <input aria-label="Username" type="text" placeholder="Username" />
+                    <input aria-label="Email" type="email" placeholder="Email" />
+                    <input aria-label="Password" type="password" placeholder="Password" />
+                    <input aria-label="Password" type="password" placeholder="Confirm Password" />
+                    <button>Sign Up</button>
+                </form>
+            </div>
+            <div class="form-container sign-in-container">
+                <form action="">
+                    <div id="sign-in-inner">
+                        <h1>Sign in</h1>
+                        <span>Log in to your account</span>
+                        <input aria-label="Email" type="text" placeholder="Username / Email" />
+                        <input aria-label="Password" type="password" placeholder="Password" />
+                        <a role="button" id="go_to_reset" href="javascript:void(0)">Forgot your password?</a>
+                        <button>Sign In</button>
+                    </div>
+                    <div id="forgot-password-inner" class="hidden">
+                        <h1>Forgot your password?</h1>
+                        <span>Enter your username or email below and we'll email you a reset link.</span>
+                        <input aria-label="Email" type="text" placeholder="Username / Email" />
+                        <a role="button" id="go_to_login" href="javascript:void(0)">I Remember it, take me back!</a>
+                        <button>Reset Password</button>
+                    </div>
+                </form>
+            </div>
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1>Already Got An Account?</h1>
+                        <p>Sign in using your Email or Username!</p>
+                        <button class="ghost" id="signIn">Sign In</button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1>Hello, Stranger!</h1>
+                        <p>Create an account with us to keep track of all your favorite Shows & Movies!</p>
+                        <button class="ghost" id="signUp">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <script src="scripts/login.js"></script>
+</body>

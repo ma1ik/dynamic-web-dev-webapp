@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./views/partials/heads.ejs'); %>
+  </head>
+  <body>
+    <header><%- include('./views/partials/headerNoSearch.ejs'); %></header>
+
+    <!--Div for movieInfo-->
+
+    <!--This is the movie image placeholder-->
+
+    <div class="movie-div">
+      <img class="movieImage" id="poster" src="../img/missing.jpg" alt="Movie Poster" />
+    </div>
+
+    <!--title of movie-->
+    <div class="information-div">
+      <div class="movieTitle">
+        <h1 class="movieH1" id="movieTitle">Loading...</h1>
+      </div>
+      <!-- Release date and rating for movie-->
+
+      <div class="movieReleaseDate-Rating">
+        <h3 id="releaseDate">Release Date:</h3>
+        <h3 id="rating">Rating:</h3>
+      </div>
+
+      <!-- movie details-->
+      <div class="movieDetails">
+        <ul class="movieCredits">
+          <li id="genres">Genres:</li>
+          <li id="status">Status:</li>
+          <li id="runTime">Run Time:</li>
+          <li id="cinematography">Production Companies:</li>
+          <li id="adult">Adult:</li>
+          <li id="flavour">Suggested Popcorn Flavor:</li>
+        </ul>
+      </div>
+
+      <!--Summary of movie-->
+
+      <div class="movieSummary">
+        <p id="summary"></p>
+      </div>
+    </div>
+
+    <!--End of div for movieInfo-->
+
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/infoPageLoader.js"></script>
+  </body>
+</html>
